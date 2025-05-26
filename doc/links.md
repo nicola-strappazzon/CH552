@@ -24,6 +24,7 @@ https://github.com/limingjie/PINOUTS/tree/main/MCU/CH55x
 https://github.com/MarsTechHAN/ch552tool
 https://github.com/pfalcon-mirrors/sdcc
 https://github.com/platunus/wch/tree/master
+https://github.com/rasteri/HIDman
 https://github.com/rgwan/librech551/tree/master
 https://github.com/semickolon/fak/tree/main
 https://github.com/SoCXin/CH552/blob/master/src/examples/DataFlash/Main.C
@@ -40,6 +41,11 @@ https://github.com/zhuhuijia0001/usb-device-ch551/tree/master
 https://lang-ship.com/reference/unofficial/CH559_Doc_Japanese/en/docs/1-overview/
 https://learn.adafruit.com/adafruit-ch552-qt-py/arduino-ide-setup
 https://nerdralph.blogspot.com/2020/07/getting-started-with-wch-ch551-and-ch552.html
+https://www.lab-z.com/554usp/
+https://www.lab-z.com/?s=ch55
+https://www.lab-z.com/c59pwm2/
+https://www.lab-z.com/stu232/
+https://www.lab-z.com/usbnt/
 https://www.wch.cn/downloads/CH552EVT_ZIP.html
 
 # 8051 C
