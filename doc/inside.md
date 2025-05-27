@@ -24,7 +24,7 @@ CH554 utiliza el mismo molde que CH551 y CH552. Esto significa que la funcionali
 
 ![](https://github.com/nicola-strappazzon/CH552/blob/main/assets/doc/inside/ch559_01.png?raw=true)
 
-El CH559 es el modelo más grande de la serie CH55x con el núcleo 5551.
+El CH559 es el modelo más grande de la serie CH55x con el núcleo del CH551.
 
 La hoja de datos proporciona un reloj máximo del sistema de 56MHz. La memoria disponible es Flash-ROM de 65 kB y RAM de 6 kB. El CH559 puede incluso gestionar dos dispositivos USB.
 
