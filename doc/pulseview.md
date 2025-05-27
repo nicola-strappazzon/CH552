@@ -1,6 +1,6 @@
 # Pulseview
 
-Open Source software for logic analyze development by [sigrok](https://sigrok.org/wiki/PulseView). El dispositivo que uso es el [nanoDLA](https://github.com/wuxx/nanoDLA) que funciona muy bien, asegurate de tenerlo correctamente [configurado](https://github.com/nstrappazzonc/CH552/blob/main/doc/logic_analyze.md).
+Open Source software for logic analyze development by [sigrok](https://sigrok.org/wiki/PulseView). El dispositivo que uso es el [nanoDLA](https://github.com/wuxx/nanoDLA) que funciona muy bien, asegurate de tenerlo correctamente [configurado](https://github.com/nicola-strappazzon/CH552/blob/main/doc/logic_analyze.md).
 
 ## Windows
 
@@ -13,7 +13,7 @@ winget install --id=Microsoft.VCRedist.2010.x64  -e
 
 Al iniciar Pulseview, podrá seleccionar el dispositivo `sigrok FX2 LA (8ch)` para capturar los datos:
 
-![](https://github.com/nstrappazzonc/CH552/blob/main/assets/doc/pulseview/pulseview01.png?raw=true)
+![](https://github.com/nicola-strappazzon/CH552/blob/main/assets/doc/pulseview/pulseview01.png?raw=true)
 
 ## Linux
 
