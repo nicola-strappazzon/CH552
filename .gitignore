@@ -1,3 +1,6 @@
+production/
+Gerber/
+hdw/*/*.json
 .DS_Store
 *.:Zone.Identifier
 *-backups
@@ -13,3 +16,4 @@
 *.rst
 *.sym
 *.zip
+panel*
