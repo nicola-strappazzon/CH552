@@ -59,6 +59,11 @@ https://github.com/saurubh/8051-Tutorial/tree/master
 https://www.electronicshub.org/basics-of-embedded-c-program/
 https://www.electronicwings.com/8051/introduction-to-8051-controller
 https://www.8051projects.net/t54498-p10/8051-discussion-forum/musical-tone-generation-for-8051.htm
+https://download.mikroe.com/documents/compilers/mikrobasic/8051/help/sound_library.htm
+https://www.engineersgarage.com/how-to-generate-sound-using-8051-microcontroller-at89c51-part-18-45/
+https://www.8051projects.net/news-i158-6-musical-tone-library-for-8051.html
+https://www.edaboard.com/threads/doubt-regarding-music-generation-using-at89c51.247688/
+
 
 # Fonts
 
