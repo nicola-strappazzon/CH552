@@ -8,6 +8,7 @@ https://github.com/atc1441/CH559sdccUSBHost/
 https://github.com/Blinkinlabs/ch554_sdcc
 https://github.com/blueskull/CH552-JTAG/tree/main
 https://github.com/Cesarbautista10/ESE_CH552_Examples_C/tree/main
+https://github.com/Cesarbautista10/ESE_CH552_Examples_C/blob/main/Software/examples/TIMER_0/main.c
 https://github.com/ch32-rs/wchisp
 https://github.com/cosmoois/CH552_PlatformIO_sample
 https://github.com/DeqingSun/ch55xduino
@@ -47,6 +48,8 @@ https://www.lab-z.com/c59pwm2/
 https://www.lab-z.com/stu232/
 https://www.lab-z.com/usbnt/
 https://www.wch.cn/downloads/CH552EVT_ZIP.html
+https://kanpapa.com/today/category/electronics/ch55x
+https://github.com/cjacker/ch55x-isptool
 
 # 8051 C
 
