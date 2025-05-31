@@ -7,9 +7,10 @@ Esta es una lista de proyectos relacionados que han servido para investigar:
 https://github.com/atc1441/CH559sdccUSBHost/
 https://github.com/Blinkinlabs/ch554_sdcc
 https://github.com/blueskull/CH552-JTAG/tree/main
-https://github.com/Cesarbautista10/ESE_CH552_Examples_C/tree/main
 https://github.com/Cesarbautista10/ESE_CH552_Examples_C/blob/main/Software/examples/TIMER_0/main.c
+https://github.com/Cesarbautista10/ESE_CH552_Examples_C/tree/main
 https://github.com/ch32-rs/wchisp
+https://github.com/cjacker/ch55x-isptool
 https://github.com/cosmoois/CH552_PlatformIO_sample
 https://github.com/DeqingSun/ch55xduino
 https://github.com/doesntfazer/Ch55p34-keyboard
@@ -38,7 +39,9 @@ https://github.com/wagiminator/CH552-USB-OLED
 https://github.com/wagiminator/Development-Boards/tree/main/CH55xT_DevBoard
 https://github.com/wagiminator/MCU-Flash-Tools/blob/main/chprog.py
 https://github.com/WeActStudio/WeActStudio.CH552CoreBoard
+https://github.com/zhuhuijia0001/usb-device-ch551/blob/master/Interrupt.c
 https://github.com/zhuhuijia0001/usb-device-ch551/tree/master
+https://kanpapa.com/today/category/electronics/ch55x
 https://lang-ship.com/reference/unofficial/CH559_Doc_Japanese/en/docs/1-overview/
 https://learn.adafruit.com/adafruit-ch552-qt-py/arduino-ide-setup
 https://nerdralph.blogspot.com/2020/07/getting-started-with-wch-ch551-and-ch552.html
@@ -48,24 +51,24 @@ https://www.lab-z.com/c59pwm2/
 https://www.lab-z.com/stu232/
 https://www.lab-z.com/usbnt/
 https://www.wch.cn/downloads/CH552EVT_ZIP.html
-https://kanpapa.com/today/category/electronics/ch55x
-https://github.com/cjacker/ch55x-isptool
+
 
 # 8051 C
 
 https://circuitdigest.com/microcontroller-projects/digital-clock-using-8051-microcontroller
+https://download.mikroe.com/documents/compilers/mikrobasic/8051/help/sound_library.htm
+https://en.eeworld.com.cn/news/mcu/eic313321.html
 https://exploreembedded.com/wiki/A6.8051_Interfacing:_RTC_DS1307
 https://exploreembedded.com/wiki/Interfacing_LCD_in_4-bit_mode_with_8051
 https://exploreembedded.com/wiki/OLED_Interface_With_8051
 https://github.com/gurubrahmayya/Digital-clock-using-RTC-DS1307-8051/tree/master
 https://github.com/saurubh/8051-Tutorial/tree/master
+https://www.8051projects.net/news-i158-6-musical-tone-library-for-8051.html
+https://www.8051projects.net/t54498-p10/8051-discussion-forum/musical-tone-generation-for-8051.htm
+https://www.edaboard.com/threads/doubt-regarding-music-generation-using-at89c51.247688/
 https://www.electronicshub.org/basics-of-embedded-c-program/
 https://www.electronicwings.com/8051/introduction-to-8051-controller
-https://www.8051projects.net/t54498-p10/8051-discussion-forum/musical-tone-generation-for-8051.htm
-https://download.mikroe.com/documents/compilers/mikrobasic/8051/help/sound_library.htm
 https://www.engineersgarage.com/how-to-generate-sound-using-8051-microcontroller-at89c51-part-18-45/
-https://www.8051projects.net/news-i158-6-musical-tone-library-for-8051.html
-https://www.edaboard.com/threads/doubt-regarding-music-generation-using-at89c51.247688/
 
 
 # Fonts
