@@ -16,11 +16,11 @@ For example, an MCU from the AT89LP51 family offers fewer features and costs thr
 
 Here are the most relevant specifications of the MCU. For more details, refer to the [official documentation](https://www.wch-ic.com/products/CH552.html).
 
-- Operates between 5V and 3.3V.
-- Includes 16KB Code Flash, 1KB XRAM, 256B iRAM, and 128B DataFlash.
-- Supports USB 2.0, UART, SPI, and ISP communication protocols.
-- Features 3 timers, 2 signal capture units, 2 PWM, and 4 ADC.
-- Equipped with a BootLoader.
+- Operates between: 5V and 3.3V.
+- Includes this memories types: 16KB Code Flash, 1KB XRAM, 256B iRAM, and 128B DataFlash.
+- Supports this communication protocols: USB 2.0, UART, SPI, and ISP.
+- Other features: 3 timers, 2 PWM, 4 ADC, and more.
+- Equipped with a Bootloader.
 - Includes a 24MHz internal clock.
 - Comes with a unique numeric identifier.
 - Available packages: TSSOP-20, SOP-16, MSOP-10.
