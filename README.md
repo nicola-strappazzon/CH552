@@ -7,7 +7,7 @@ A major difference of this microcontroller compared to other microcontrollers is
 You can purchase the MCUs from the official store on [AliExpress](https://wchofficialstore.es.aliexpress.com/store/1100367542) or at [LCSC](https://www.lcsc.com).
 
 <p align="center">
-	<img src="https://github.com/nicola-strappazzon/CH552/blob/main/assets/system_block_diagram.png?raw=true">
+	<img src="/assets/system_block_diagram.png">
 </p>
 
 For example, an MCU from the AT89LP51 family offers fewer features and costs three times more compared to the CH55X family. Of course, the support community for Microchip is much larger and more established compared to WCH’s, which is just starting to grow. However, the key is having good official documentation and a solid architecture. With patience and perseverance, great things can be achieved.
@@ -26,10 +26,10 @@ Here are the most relevant specifications of the MCU. For more details, refer to
 - Available packages: TSSOP-20, SOP-16, MSOP-10.
 
 <p align="center">
-	<img src="https://github.com/nicola-strappazzon/CH552/blob/main/assets/pinout2.png?raw=true">
+	<img src="/assets/pinout2.png">
 </p>
 
-The pinout we are showing is basic, just to give you an idea. There are more functionalities available on the ports. Please refer to the [datasheet](https://github.com/nicola-strappazzon/CH552/blob/main/doc/datasheets/CH552.pdf?raw=true) for more detailed information.
+The pinout we are showing is basic, just to give you an idea. There are more functionalities available on the ports. Please refer to the [datasheet](/doc/datasheets/CH552.pdf) for more detailed information.
 
 > [!IMPORTANT]
 > 1. The internal 24MHz clock is not precise but in the most cases is good, you can adjust it by software using a logic analyze, otherwise you will have to use an external one.
@@ -45,35 +45,35 @@ Use the following components to build the minimum circuit:
 - Two 1K resistors.
 - Two push buttons: one for boot and one for reset.
 
-![](https://github.com/nicola-strappazzon/CH552/blob/main/assets/minimal_schematic.jpg?raw=true)
+![](/assets/minimal_schematic.jpg)
 
 On the breadboard, it should look like this:
 
-![](https://github.com/nicola-strappazzon/CH552/blob/main/assets/minimal_protoboard.jpg?raw=true)
+![](/assets/minimal_protoboard.jpg)
 
 ## Source Code
 
 This repository contains a collection of example source codes written in C to get started. All the listed examples have been thoroughly tested to ensure they function correctly.
 
-- [adc](https://github.com/nicola-strappazzon/CH552/tree/main/src/adc) Captures voltage variations through an input port.
-- [blink](https://github.com/nicola-strappazzon/CH552/tree/main/src/blink) Uses an output port to turn an LED on and off.
-- [bootloader](https://github.com/nicola-strappazzon/CH552/tree/main/src/bootloader) Forces the MCU to enter bootloader mode by default.
-- [button & led rgb](https://github.com/nicola-strappazzon/CH552/tree/main/src/button_led_rgb) Interacts with a button and an RGB LED to change its color.
-- [button](https://github.com/nicola-strappazzon/CH552/tree/main/src/button) Uses one input port for a button and another output port for the LED.
-- [cdc](https://github.com/nicola-strappazzon/CH552/tree/main/src/cdc) Sends and receives messages via the UART protocol.
-- [data flash](https://github.com/nicola-strappazzon/CH552/tree/main/src/data_flash) Saves the last state in persistent memory.
-- [DHT11](https://github.com/nicola-strappazzon/CH552/tree/main/src/dht11) Read DHT11 sensor and print to OLED module.
-- [fade](https://github.com/nicola-strappazzon/CH552/tree/main/src/fade) Uses PWM to fade a LED on and off.
-- [oled module](https://github.com/nicola-strappazzon/CH552/tree/main/src/ssd1306) Simple usage of an OLED module with I2C.
-- [USB/cdc](https://github.com/nicola-strappazzon/CH552/tree/main/src/usb/cdc/tx) Sends messages via the USB port.
+- [adc](/src/adc) Captures voltage variations through an input port.
+- [blink](/src/blink) Uses an output port to turn an LED on and off.
+- [bootloader](/src/bootloader) Forces the MCU to enter bootloader mode by default.
+- [button & led rgb](/src/button_led_rgb) Interacts with a button and an RGB LED to change its color.
+- [button](/src/button) Uses one input port for a button and another output port for the LED.
+- [cdc](/src/cdc) Sends and receives messages via the UART protocol.
+- [data flash](/src/data_flash) Saves the last state in persistent memory.
+- [DHT11](/src/dht11) Read DHT11 sensor and print to OLED module.
+- [fade](/src/fade) Uses PWM to fade a LED on and off.
+- [oled module](/src/ssd1306) Simple usage of an OLED module with I2C.
+- [USB/cdc](/src/usb/cdc/tx) Sends messages via the USB port.
 
 ## Documentation
 
 This is basic documentation to help you compile and upload firmware to the MCU, including the datasheet, relevant links, and much more.
 
-- [SDCC (Small Devices C Compiler)](https://github.com/nicola-strappazzon/CH552/blob/main/doc/sdcc.md) Explains how to install and use the compiler.
-- [Bootloader](https://github.com/nicola-strappazzon/CH552/blob/main/doc/flash.md) The MCU has a bootloader, and you need to know how to enter it to upload the firmware.
-- [Datasheet](https://github.com/nicola-strappazzon/CH552/blob/main/doc/datasheets/CH552.pdf) Technical documentation from the manufacturer.
+- [SDCC (Small Devices C Compiler)](/doc/sdcc.md) Explains how to install and use the compiler.
+- [Bootloader](/doc/flash.md) The MCU has a bootloader, and you need to know how to enter it to upload the firmware.
+- [Datasheet](/doc/datasheets/CH552.pdf) Technical documentation from the manufacturer.
 
 ## Related Projects
 
