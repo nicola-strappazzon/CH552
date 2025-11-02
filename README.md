@@ -29,7 +29,7 @@ Here are the most relevant specifications of the MCU. For more details, refer to
 	<img src="https://github.com/nicola-strappazzon/CH552/blob/main/assets/pinout2.png?raw=true">
 </p>
 
-The pinout we are showing is basic, just to give you an idea. There are more functionalities available on the ports. Please refer to the [datasheet](https://github.com/nicola-strappazzon/CH552/blob/main/doc/CH552.pdf?raw=true) for more detailed information.
+The pinout we are showing is basic, just to give you an idea. There are more functionalities available on the ports. Please refer to the [datasheet](https://github.com/nicola-strappazzon/CH552/blob/main/doc/datasheets/CH552.pdf?raw=true) for more detailed information.
 
 > [!IMPORTANT]
 > 1. The internal 24MHz clock is not precise but in the most cases is good, you can adjust it by software using a logic analyze, otherwise you will have to use an external one.
@@ -73,7 +73,7 @@ This is basic documentation to help you compile and upload firmware to the MCU, 
 
 - [SDCC (Small Devices C Compiler)](https://github.com/nicola-strappazzon/CH552/blob/main/doc/sdcc.md) Explains how to install and use the compiler.
 - [Bootloader](https://github.com/nicola-strappazzon/CH552/blob/main/doc/flash.md) The MCU has a bootloader, and you need to know how to enter it to upload the firmware.
-- [Datasheet](https://github.com/nicola-strappazzon/CH552/blob/main/doc/CH552.pdf) Technical documentation from the manufacturer.
+- [Datasheet](https://github.com/nicola-strappazzon/CH552/blob/main/doc/datasheets/CH552.pdf) Technical documentation from the manufacturer.
 
 ## Related Projects
 
