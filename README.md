@@ -86,3 +86,4 @@ This is basic documentation to help you compile and upload firmware to the MCU, 
 - [Adafruit CH552 QT Py](https://learn.adafruit.com/adafruit-ch552-qt-py/overview)
 - [English Docs for CH559 Microcontroller](https://kprasadvnsi.github.io/CH559_Doc_English)
 - [Small Devices Arduino for ch55x devices](https://github.com/DeqingSun/ch55xduino)
+- [Arduino Board Package to Debug Uno/ATmega328P with CH552 debugger in Arduino IDE 2.0.0](https://github.com/DeqingSun/unoDebugTestPackage)

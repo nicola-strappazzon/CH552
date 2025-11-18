@@ -4,11 +4,11 @@ Foro en chino: https://www.wch.cn/bbs
 
 Esta es una lista de proyectos relacionados que han servido para investigar:
 
+https://aleksmola.github.io/2024/10/26/how-to-flash-ch552/
 https://github.com/atc1441/CH559sdccUSBHost/
 https://github.com/Blinkinlabs/ch554_sdcc
 https://github.com/blueskull/CH552-JTAG/tree/main
-https://github.com/Cesarbautista10/ESE_CH552_Examples_C/blob/main/Software/examples/TIMER_0/main.c
-https://github.com/Cesarbautista10/ESE_CH552_Examples_C/tree/main
+https://github.com/Cesarbautista10/ESE_CH552_Examples_C
 https://github.com/ch32-rs/wchisp
 https://github.com/cjacker/ch55x-isptool
 https://github.com/cosmoois/CH552_PlatformIO_sample
@@ -63,6 +63,7 @@ https://exploreembedded.com/wiki/Interfacing_LCD_in_4-bit_mode_with_8051
 https://exploreembedded.com/wiki/OLED_Interface_With_8051
 https://github.com/gurubrahmayya/Digital-clock-using-RTC-DS1307-8051/tree/master
 https://github.com/saurubh/8051-Tutorial/tree/master
+https://unit-electronics.github.io/CH552_Curso_introductorio/docs/1-descripcion-general/
 https://www.8051projects.net/news-i158-6-musical-tone-library-for-8051.html
 https://www.8051projects.net/t54498-p10/8051-discussion-forum/musical-tone-generation-for-8051.htm
 https://www.edaboard.com/threads/doubt-regarding-music-generation-using-at89c51.247688/
