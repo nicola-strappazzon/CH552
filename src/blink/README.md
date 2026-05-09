@@ -2,7 +2,7 @@
 
 This is a simple blink example (turning on and off with an intermediate pause), also known as a flip-flop, which uses the P3.0 port to send a voltage of 5V and 0V.
 
-![](https://github.com/nicola-strappazzon/CH552/blob/main/assets/src/blink/schematic.png?raw=true)
+![](/assets/src/blink/schematic.png)
 
 In the source code, we show two ways to achieve the same result:
 
