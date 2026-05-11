@@ -2,7 +2,7 @@ TARGET = usbcdc
 
 C_FILES = \
 	main.c \
-	usb.c \
+	../../../../inc/usb.c \
 	../../../../inc/utils.c
 
 pre-flash:

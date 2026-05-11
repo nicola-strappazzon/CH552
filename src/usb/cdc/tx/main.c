@@ -21,6 +21,6 @@ void main(void) {
     sprintf(buffer, "%d - Hello from CH552G with USB\n", counter++);
 
     USBWriteString(buffer);
-    delay(1000);
+    delay_ms(1000);
   }
 }

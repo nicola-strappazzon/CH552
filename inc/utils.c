@@ -7,11 +7,6 @@ void delay_us(unsigned int us) {
 
     unsigned int initial_value;
 
-    // Limit the maximum delay to 65,535 μs
-    if (us > 65535) {
-        us = 65535;
-    }
-
     // Calculate the initial timer value for the desired delay
     initial_value = 65536 - us;
 

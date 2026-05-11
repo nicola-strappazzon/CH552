@@ -4,7 +4,6 @@
 CC       = sdcc
 OBJCOPY  = objcopy
 PACK_HEX = packihx
-WCHISP  ?= ../../tools/macos/wchisp flash 
 
 #######################################################
 
@@ -12,6 +11,7 @@ XRAM_LOC  = 0x0000
 XRAM_SIZE = 0x0400
 CODE_SIZE = 0x3800
 ROOT_DIR := $(dir $(abspath $(lastword $(MAKEFILE_LIST))))
+WCHISP  ?= $(ROOT_DIR)../tools/macos/wchisp flash
 CFLAGS   := -mmcs51 \
 	--no-xinit-opt \
 	--xram-size $(XRAM_SIZE) \
@@ -40,7 +40,7 @@ $(TARGET).hex: $(TARGET).ihx
 
 $(TARGET).bin: $(TARGET).ihx
 	$(OBJCOPY) -I ihex -O binary $(TARGET).ihx $(TARGET).bin
-	
+
 flash: $(TARGET).bin pre-flash
 	$(WCHISP) $(TARGET).bin
 

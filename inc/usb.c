@@ -145,6 +145,12 @@ void USBWriteString(char* str) {
   UEP2_CTRL = UEP2_CTRL & ~MASK_UEP_T_RES | UEP_T_RES_ACK;
 }
 
+void USBWriteHex(uint8_t b) {
+    const char hex[] = "0123456789ABCDEF";
+    USBWrite(hex[(b >> 4) & 0x0F]);
+    USBWrite(hex[b & 0x0F]);
+}
+
 void USB_EP2_IN(void) {
   UEP2_T_LEN = 0;
   UEP2_CTRL = UEP2_CTRL & ~MASK_UEP_T_RES | UEP_T_RES_NAK;

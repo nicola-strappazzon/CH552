@@ -65,6 +65,7 @@ This repository contains a collection of example source codes written in C to ge
 - [DHT11](/src/dht11) Read DHT11 sensor and print to OLED module.
 - [fade](/src/fade) Uses PWM to fade a LED on and off.
 - [oled module](/src/ssd1306) Simple usage of an OLED module with I2C.
+- [unique id](/src/unique_id) Reads the chip model (CHIP_ID) and the factory-programmed unique serial, streams it over USB-CDC.
 - [USB/cdc](/src/usb/cdc/tx) Sends messages via the USB port.
 
 ## Documentation

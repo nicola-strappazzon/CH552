@@ -177,3 +177,4 @@ void USBInterrupt(void);
 void USBInit(void);
 void USBWrite(char c);
 void USBWriteString(char* str);
+void USBWriteHex(uint8_t b);
