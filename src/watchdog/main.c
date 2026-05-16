@@ -6,10 +6,10 @@ SBIT(P30, 0xB0, 0);
 #define LED P30
 
 static void watchdog_enable(void) {
-  SAFE_MOD   = 0x55;
-  SAFE_MOD   = 0xAA;
+  SAFE_MOD    = 0x55;
+  SAFE_MOD    = 0xAA;
   GLOBAL_CFG |= bWDOG_EN;
-  WDOG_COUNT = 0;
+  WDOG_COUNT  = 0;
 }
 
 static void watchdog_feed(void) {
@@ -27,10 +27,10 @@ void main(void) {
   // Boot marker: 3 fast blinks after every reset. If you see this pattern
   // repeating, the watch-dog is rescuing a hung MCU.
   for(i = 0; i < 3; i++) {
-    LED = 1; delay_ms(150);
-    LED = 0; delay_ms(150);
+    LED = 1; delay_ms(100);
+    LED = 0; delay_ms(100);
   }
-  delay_ms(400);
+  delay_ms(1000);
 
   watchdog_enable();
 
