@@ -33,7 +33,7 @@ The pinout we are showing is basic, just to give you an idea. There are more fun
 
 > [!IMPORTANT]
 > 1. The internal 24MHz clock is not precise but in the most cases is good, you can adjust it by software using a logic analyze, otherwise you will have to use an external one.
-> 2. The Code Flash (ROM) uses an iFlash™ process and is rated by the datasheet for **about 200 reprogramming cycles** at 5V — much less than typical flash MCUs. Plan your prototyping accordingly; for intensive reflashing WCH recommends the CH558 or CH546/7 instead. The 128-byte **Data Flash** is a separate region rated for **about 10,000 erase/program cycles**, with balanced wear recommended.
+> 2. The Code Flash (ROM) uses an iFlash™ process and is rated by the datasheet for **about 200 reprogramming cycles** at 5V — much less than typical flash MCUs. The 128-byte **Data Flash** is a separate region rated for **about 10,000 erase/program cycles**, with balanced wear recommended.
 
 ## Minimum Schematic
 
