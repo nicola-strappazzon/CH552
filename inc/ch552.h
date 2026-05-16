@@ -106,6 +106,9 @@ SFR(GLOBAL_CFG, 0xB1); // global config, Write@SafeMode
 #define bWDOG_EN                                                               \
   0x01 // enable watch-dog reset if watch-dog timer overflow: 0=as timer only,
        // 1=enable reset if timer overflow
+SFR(WDOG_COUNT, 0xBF); // watch-dog counter, increments at Fsys/65536; overflow
+                       // (0xFF -> 0x00) triggers reset when bWDOG_EN is set.
+                       // Write any value to feed (kick) the watch-dog.
 
 // Interrupt routine address and interrupt number:
 // -----------------------------------------------
