@@ -68,8 +68,8 @@ This repository contains a collection of example source codes written in C to ge
 - [pwm](/src/pwm) Hardware PWM fade on P3.0 using the PWM1 peripheral.
 - [unique id](/src/unique_id) Reads the chip unique serial, print it over USB-CDC.
 - [USB/cdc tx](/src/usb/cdc/tx) Sends messages via the USB-CDC.
-- [watchdog](/src/watchdog) Demonstrates hardware watchdog recovery from a simulated hang.
 - [USB/cdc rx](/src/usb/cdc/rx) Echoes back bytes received over USB-CDC.
+- [watchdog](/src/watchdog) Demonstrates hardware watchdog recovery from a simulated hang.
 
 ## Documentation
 
