@@ -1,19 +1,19 @@
-# DHT11 - Sensor de temperatura y humedad
+# DHT11 - Temperature and humidity sensor
 
 [Datasheet](/doc/datasheets/DHT11.pdf)
 
-Este sensor opera entre 3.3V y 5.5V, usa un protocolo de comunicación propietario del tipo "single wire", y su precisión oscila entre +/- 5 % en humedad, y +/- 2C en temperatura.
+This sensor operates between 3.3V and 5.5V, uses a proprietary "single wire" communication protocol, and its accuracy is around +/- 5 % for humidity and +/- 2C for temperature.
 
 ![](/assets/src/dht11/protoboard.jpeg)
 
-La conexión entre el sensor y el MCU es muy simple, puedes escoger cualquier pin disponible, en este caso se usó el P3.2:
+The connection between the sensor and the MCU is very simple — you can pick any available pin; here we use P3.2:
 
 ![](/assets/src/dht11/schematic.png)
 
 ## Single wire protocol
 
-El DHT11 usa un solo cable para comunicarse, comenzando con una señal de inicio del microcontrolador: el pin se pone en nivel bajo por al menos 18 ms y luego se libera (nivel alto). El sensor responde con un pulso bajo de 80 µs seguido de un pulso alto de 80 µs para indicar que está listo. A continuación, el DHT11 envía 40 bits de datos (5 bytes), los dos primeros bytes representan la humedad entera y decimal, luego los siguientes dos bytes representan la temperatura entera y decimal, por último un byte que es un checksum para validar los datos.
+The DHT11 uses a single wire for communication, starting with a start signal from the microcontroller: the pin is pulled low for at least 18 ms and then released (high). The sensor replies with an 80 µs low pulse followed by an 80 µs high pulse to indicate it is ready. After that, the DHT11 sends 40 bits of data (5 bytes): the first two bytes are the integer and decimal parts of the humidity, the next two are the integer and decimal parts of the temperature, and the last byte is a checksum to validate the data.
 
 ![](/assets/doc/pulseview/dht11_02.png)
 
-**NOTA:** Para que la comunicación con el sensor funcione, el reloj debe estar bien configurado, asegúrate de validarlo con un osciloscopio o un [analizador lógico](/doc/logic_analyze.md).
+**NOTE:** For communication with the sensor to work, the clock must be properly configured. Make sure to validate it with an oscilloscope or a [logic analyzer](/doc/logic_analyze.md).
