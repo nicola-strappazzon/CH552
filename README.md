@@ -67,7 +67,8 @@ This repository contains a collection of example source codes written in C to ge
 - [oled module](/src/ssd1306) Simple usage of an OLED module with I2C.
 - [pwm](/src/pwm) Hardware PWM fade on P3.0 using the PWM1 peripheral.
 - [unique id](/src/unique_id) Reads the chip unique serial, print it over USB-CDC.
-- [USB/cdc](/src/usb/cdc/tx) Sends messages via the USB port.
+- [USB/cdc tx](/src/usb/cdc/tx) Sends messages via the USB port.
+- [USB/cdc echo](/src/usb/cdc/rx) Echoes back bytes received over USB-CDC.
 
 ## Documentation
 

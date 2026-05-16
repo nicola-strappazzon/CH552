@@ -7,6 +7,9 @@ volatile uint16_t usb_tx_len;
 volatile uint8_t  SetupReq, UsbConfig;
 __code uint8_t *p_usb_tx;
 
+volatile uint8_t usb_rx_len;
+volatile uint8_t usb_rx_idx;
+
 // ===================================================================================
 // Device Descriptor
 // ===================================================================================
@@ -151,9 +154,38 @@ void USBWriteHex(uint8_t b) {
     USBWrite(hex[b & 0x0F]);
 }
 
+// Commit whatever is currently buffered for IN: hand the packet to the host.
+void USBFlush(void) {
+  UEP2_CTRL = UEP2_CTRL & ~MASK_UEP_T_RES | UEP_T_RES_ACK;
+}
+
+// Bytes pending in the most recent OUT packet that have not been read yet.
+uint8_t USBReadAvailable(void) {
+  return usb_rx_len - usb_rx_idx;
+}
+
+// Pull the next byte from the OUT buffer. Re-arms ACK once the packet is drained.
+uint8_t USBRead(void) {
+  uint8_t c = EP2_buffer[usb_rx_idx++];
+  if(usb_rx_idx >= usb_rx_len) {
+    usb_rx_idx = 0;
+    usb_rx_len = 0;
+    UEP2_CTRL = UEP2_CTRL & ~MASK_UEP_R_RES | UEP_R_RES_ACK;
+  }
+  return c;
+}
+
 void USB_EP2_IN(void) {
   UEP2_T_LEN = 0;
   UEP2_CTRL = UEP2_CTRL & ~MASK_UEP_T_RES | UEP_T_RES_NAK;
+}
+
+void USB_EP2_OUT(void) {
+  if(U_TOG_OK) {
+    usb_rx_len = USB_RX_LEN;
+    usb_rx_idx = 0;
+    UEP2_CTRL = UEP2_CTRL & ~MASK_UEP_R_RES | UEP_R_RES_NAK;
+  }
 }
 
 void USB_EP0_SETUP(void) {
@@ -243,6 +275,10 @@ void USBInterrupt(void) {
 
       case UIS_TOKEN_IN | 2:
         USB_EP2_IN();
+        break;
+
+      case UIS_TOKEN_OUT | 2:
+        USB_EP2_OUT();
         break;
 
       case UIS_TOKEN_SETUP | 0:

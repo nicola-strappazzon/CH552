@@ -173,8 +173,12 @@ __xdata __at (EP2_ADDR) uint8_t EP2_buffer[EP2_BUF_SIZE];
 
 void USB_EP1_IN(void);
 void USB_EP2_IN(void);
+void USB_EP2_OUT(void);
 void USBInterrupt(void);
 void USBInit(void);
 void USBWrite(char c);
 void USBWriteString(char* str);
 void USBWriteHex(uint8_t b);
+void USBFlush(void);
+uint8_t USBReadAvailable(void);
+uint8_t USBRead(void);
