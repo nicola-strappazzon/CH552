@@ -37,7 +37,7 @@ If you want all 4 long blinks to complete and only the explicit hang to trigger 
 The CH552 prescaler is **fixed** (Fsys / 65536), so the only knob is the value you load into `WDOG_COUNT` when you feed it. The counter always overflows at 256, so:
 
 ```
-timeout ≈ (256 − WDOG_COUNT) × 2.73 ms     (at Fsys = 24 MHz)
+timeout ≈ (256 − WDOG_COUNT) × 2.73 ms (at Fsys = 24 MHz)
 ```
 
 A higher preload means a shorter timeout, because there are fewer counts left until overflow. The example feeds with `0` (maximum timeout). Pick another value to shrink the window:
