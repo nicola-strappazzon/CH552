@@ -1,5 +1,9 @@
 # DHT20 - Sensor de temperatura y humedad (I2C)
 
+The connection between the sensor and the MCU is very simple:
+
+![](/assets/src/dht20/schematic.png)
+
 Característica:
 
 - Este es el sucesor del [DHT11](/src/dht11).
