@@ -1,14 +1,18 @@
-# DHT20 - Sensor de temperatura y humedad (I2C)
+# DHT20 temperature and humidity sensor
 
-The connection between the sensor and the MCU is very simple:
+## Description
 
-![](/assets/src/dht20/schematic.png)
+Wiring notes for a DHT20 I2C sensor. The sensor code is not implemented yet.
 
-Característica:
+## Schematic
 
-- Este es el sucesor del [DHT11](/src/dht11).
-- El protocolo de comunicación del DHT20 es el I2C.
-- El DHT20 internamente es un AHT20.
-- El DHT20 empaquetado tipo SMD corresponde al [AHT20](/doc/datasheets/AHT20.pdf).
+![DHT20 circuit](/assets/src/dht20/schematic.png)
 
-[Datasheet](/doc/datasheets/DHT20.pdf)
+## Features
+
+- I2C interface.
+- A newer alternative to the [DHT11](/src/dht11).
+
+## Additional information
+
+See the [DHT20 datasheet](/doc/datasheets/DHT20.pdf) and the related [AHT20 datasheet](/doc/datasheets/AHT20.pdf). The current `main.c` only initializes the MCU.

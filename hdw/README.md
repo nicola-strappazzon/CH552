@@ -1,35 +1,42 @@
 # Hardware
 
-En este directorio hay una serie de proyectos hechos con [KiCad](https://www.kicad.org) relacionados al CH552G.
+[KiCad](https://www.kicad.org) designs for CH552G projects. The boards can be manufactured by services such as [JLCPCB](https://jlcpcb.com).
 
-Las placas se pueden mandar a construir en [JLCPCB](https://jlcpcb.com).
+## Minimum circuit
 
-- [Minimal](minimal) Esquema mínimo del circuito para el CH552G.
+[KiCad files](minimal) for the minimum CH552G circuit.
 
 <p align="center">
 	<img src="/assets/minimal_schematic.jpg" height="200px">
 </p>
 
-- [Breakout SOIC-16](SOIC16) Una simple PCB para poder soldar el CH552G y poder trabajar en el protoboard.
+## SOIC-16 breakout
+
+Breakout board for breadboard use. Only the image is included here.
 
 <p align="center">
 	<img src="/assets/hdw/soic16/SOIC16.png" height="200px">
 </p>
 
-- [Breakout TQFP-48](TQFP48) Una simple PCB para poder soldar el CH552G y poder trabajar en el protoboard.
+## TQFP-48 breakout
+
+[KiCad files](TQFP48) for a TQFP-48 breadboard adapter.
 
 <p align="center">
 	<img src="/assets/hdw/tqfp48/TQFP48.png" height="200px">
 </p>
 
+## USB-C breakout
 
-- [Breakout USB-C 2.0](USBC2) Una simple PCB para poder soldar el conector USB-C 2.0 y poder trabajar en el protoboard teniendo un excelente soporte que lo fija bien.
+[KiCad files](USBC2) for a USB-C connector adapter with mechanical support.
 
 <p align="center">
 	<img src="/assets/hdw/usbc2/usbc2_01.png" height="200px">
 </p>
 
-- [CH552G](CH552G) Una PCB con el circuito del CH552G.
+## CH552G board
+
+[KiCad files](CH552G) for a board with the CH552G circuit.
 
 <p align="center">
 	<img src="/assets/hdw/ch552g/CH552.png" height="200px">

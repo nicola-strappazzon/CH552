@@ -1,24 +1,22 @@
-# Pulseview
+# PulseView
 
-Open Source software for logic analyze development by [sigrok](https://sigrok.org/wiki/PulseView). El dispositivo que uso es el [nanoDLA](https://github.com/wuxx/nanoDLA) que funciona muy bien, asegurate de tenerlo correctamente [configurado](/doc/logic_analyze.md).
+[PulseView](https://sigrok.org/wiki/PulseView) is open-source software for capturing and decoding logic signals. These examples use a [nanoDLA](https://github.com/wuxx/nanoDLA). Complete the [driver setup](logic_analyze.md) first if needed.
 
 ## Windows
 
-Escriba las siguientes líneas en el PowerShell:
+Run in PowerShell:
 
 ```powershell
 winget install pulseview
-winget install --id=Microsoft.VCRedist.2010.x64  -e
+winget install --id=Microsoft.VCRedist.2010.x64 -e
 ```
 
-Al iniciar Pulseview, podrá seleccionar el dispositivo `sigrok FX2 LA (8ch)` para capturar los datos:
+Open PulseView and select `sigrok FX2 LA (8ch)`:
 
-![](/assets/doc/pulseview/pulseview01.png)
+![Select the logic analyzer](/assets/doc/pulseview/pulseview01.png)
 
-## Linux
-
-Arch Linux:
+## Arch Linux
 
 ```bash
-sudo pacman -Sy pulseview
+sudo pacman -Syu pulseview
 ```

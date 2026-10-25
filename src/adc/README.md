@@ -1,5 +1,18 @@
 # ADC
 
-This is a simple example of the ADC (Analog to Digital Converter) that uses the AIN0 port, which is equivalent to P1.1, to obtain a voltage that is varied by a potentiometer. The values are printed through [CDC](/src/cdc) and range from 0 to 255.
+## Description
 
-![](/assets/src/adc/schematic.png)
+Read a potentiometer on AIN0 (P1.1) and send the result over UART.
+
+## Schematic
+
+![ADC circuit](/assets/src/adc/schematic.png)
+
+## Features
+
+- 8-bit readings from 0 to 255.
+- UART output at 9600 baud.
+
+## Additional information
+
+See the [UART example](/src/cdc) for the serial connection.

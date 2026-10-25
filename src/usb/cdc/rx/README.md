@@ -1,17 +1,21 @@
-# USB CDC Echo (RX + TX)
+# USB CDC echo
 
-This example enumerates the CH552G as a USB CDC serial device and echoes back any byte the host writes to the virtual COM port.
+## Description
 
-It exercises both directions of the bulk endpoint:
+Echo each byte received through the native USB serial port.
 
-- `USBReadAvailable()` reports how many bytes are pending from the last OUT packet.
-- `USBRead()` returns the next byte and re-arms the OUT endpoint with `ACK` once the packet is drained.
-- `USBWrite()` appends to the IN buffer and `USBFlush()` hands the packet to the host.
+## Schematic
 
-## Test it
+No example schematic is included. See the [minimum circuit](/README.md#minimum-circuit).
 
-1. Flash the firmware (`make flash`).
-2. Open the virtual COM port at any baud rate (the CDC line coding is informational; the device ignores it):
-   - macOS / Linux: `screen /dev/tty.usbmodem* 115200` (or `picocom`, `minicom`).
-   - Windows: any serial terminal pointed at the new COM port.
-3. Type characters — each byte you send should come straight back.
+## Features
+
+- USB CDC virtual serial port.
+- Receives with `USBReadAvailable()` and `USBRead()`.
+- Sends replies with `USBWrite()` and `USBFlush()`.
+
+## Additional information
+
+Flash the firmware, open the serial port, and type characters. Each byte sent should come back. The firmware ignores the selected baud rate.
+
+Use `/dev/ttyACM0` on Linux, the matching `/dev/tty.usbmodem*` device on macOS, or the assigned COM port on Windows. The actual port name may differ.

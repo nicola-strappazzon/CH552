@@ -1,42 +1,37 @@
-# SDCC (Small Devices C Compiler)
+# SDCC
 
-Es un compilador libre para el lenguaje Embedded-C que permite desarrollar en microcontroladores de 8-bit. [Sitio oficial](https://sdcc.sourceforge.net)
+[SDCC](https://sdcc.sourceforge.net) is a free C compiler for 8-bit microcontrollers.
 
-## Instalación:
+## Installation
 
-### Linux
+Debian or Ubuntu:
 
-```
-sudo apt-install build-essential sdcc
-```
-
-### MAC OS X
-
-```
-brew install sdcc
-brew install binutils
+```bash
+sudo apt install build-essential sdcc binutils
 ```
 
-Agregar las siguientes líneas al fichero `.bash_profile`:
+macOS:
 
-```
-export PATH="/opt/homebrew/opt/binutils/bin:$PATH"
-export LDFLAGS="-L/opt/homebrew/opt/binutils/lib"
-export CPPFLAGS="-I/opt/homebrew/opt/binutils/include"
+```bash
+brew install sdcc binutils
 ```
 
-#### Troubleshooting
+Add GNU binutils to your shell profile on macOS:
 
-Si al compular tienes el siguiente error, es que te falto hacer el `export` de las variables anteriores.
-
-```
-objcopy -I ihex -O binary blink.ihx blink.bin
-make: objcopy: No such file or directory
-make: *** [blink.bin] Error 1
+```bash
+export PATH="$(brew --prefix binutils)/bin:$PATH"
 ```
 
-## Compiler
+Reload the profile or open a new terminal. If `make` reports `objcopy: No such file or directory`, check this path.
 
+## Build
+
+From the repository root:
+
+```bash
+make -C src/blink
 ```
-sdcc -c -V -mmcs51 --model-small -I ../../inc/ --xram-size 0x0400 --xram-loc 0x0000 -DFREQ_SYS=24000000 main.c -o main.ihx
-```
+
+The example Makefiles share compiler settings in `src/Makefile.include`. They produce `.bin` and `.hex` files.
+
+See [Flash firmware](flash.md) for upload instructions.

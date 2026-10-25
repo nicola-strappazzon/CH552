@@ -1,99 +1,104 @@
-# Fundamentos de lenguaje C51
+# C51 basics
 
-## Estructura básica
+## Program structure
 
-Todo programa empieza en una función `main` de la siguiente forma:
+Execution starts in `main`:
 
 ```c
 void main(void) {
-	// sentencias ...
+    // Your code here.
+    while (1) {
+    }
 }
 ```
 
-## Manipulación de bit (bitwise)
+## Bitwise operators
 
 ### OR
 
-El Operador OR es utilizado para la asignación un bit. Se representa con el símbolo `|`.
+Use `|` to set bits.
 
-| A | B | A\|B |
-|---|---|:---:|
-| 1 | 0 |  0  |
-| 1 | 1 |  1  |
-| 0 | 0 |  0  |
-| 0 | 1 |  1  |
+| A | B | A \| B |
+|---|---|---|
+| 1 | 0 | 1 |
+| 1 | 1 | 1 |
+| 0 | 0 | 0 |
+| 0 | 1 | 1 |
 
-Por ejemplo: `0b00001010 | 0b00000001 = 0b00001011`.
+```c
+P3 |= (1 << 0); // Set bit 0.
+```
 
 ### AND
 
-El operador AND es utilizado para deshacer la asignación un bit. Se representa con el símbolo `&`.
+Use `&` with an inverted mask to clear bits.
 
-| A | B | A&B |
-|---|---|:---:|
-| 1 | 0 |  0  |
-| 1 | 1 |  1  |
-| 0 | 0 |  0  |
-| 0 | 1 |  0  |
+| A | B | A & B |
+|---|---|---|
+| 1 | 0 | 0 |
+| 1 | 1 | 1 |
+| 0 | 0 | 0 |
+| 0 | 1 | 0 |
 
-Por ejemplo: `0bxxxxxxxx & 0x10000000 = 0b1xxxxxxx`.
+```c
+P3 &= ~(1 << 0); // Clear bit 0.
+```
 
 ### XOR
 
-El operador XOR (OR exclusivo) es utilizado para hacer la inversión (flipping) un bit. Se representa con el símbolo `^`.
+Use `^` to toggle bits.
 
-| A | B | A^B |
-|---|---|:---:|
-| 1 | 0 |  1  |
-| 1 | 1 |  0  |
-| 0 | 0 |  0  |
-| 0 | 1 |  1  |
-
-### Shifting
-
-
-
-### NOT
-
-
-
-### Consideraciones
-
-#### Asignación con operadores
-
-La siguiente forma de hacer la asignacion con operadores son validas:
-
-```
-P30 = P30 | 0b00000001;
-P30 |= 0b00000001;
-```
-
-#### Componer operadores
-
-La siguiente forma de componer varias asignaciones con operadores son validas:
-
-```
-PORTB |= (1 << PINB0)|(1 << PINB2)|(1 << PINB4);
-PORTB &= ~((1 << PINB0)|(1 << PINB2)|(1 << PINB4));
-```
-
-## Sentencia de control
-
-### IF
-
-### Switch
+| A | B | A ^ B |
+|---|---|---|
+| 1 | 0 | 1 |
+| 1 | 1 | 0 |
+| 0 | 0 | 0 |
+| 0 | 1 | 1 |
 
 ```c
-switch(variable){
+P3 ^= (1 << 0); // Toggle bit 0.
+```
+
+### Shifts and NOT
+
+`1 << n` creates a mask for bit `n`. `>>` shifts right. `~` inverts all bits.
+
+### Assignment and combined masks
+
+These assignments are equivalent:
+
+```c
+P3 = P3 | 0x01;
+P3 |= 0x01;
+```
+
+Combine masks to change several bits:
+
+```c
+P3 |= (1 << 0) | (1 << 2) | (1 << 4);
+P3 &= ~((1 << 0) | (1 << 2) | (1 << 4));
+```
+
+## Conditions
+
+```c
+if (BUTTON) {
+    LED = 1;
+} else {
+    LED = 0;
+}
+```
+
+```c
+switch (value) {
     case 0:
-    	// sentencias ...
-      break;
+        // Handle zero.
+        break;
     case 1:
-    	// sentencias ...
-      break;
-    // case n:
-    //   sentencias ...
+        // Handle one.
+        break;
     default:
-    	// sentencias ...
+        // Handle other values.
+        break;
 }
 ```

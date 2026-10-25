@@ -1,13 +1,23 @@
-# SSD1306
+# SSD1306 OLED
 
-In this example, we use a [0.96-inch monochrome OLED](https://es.aliexpress.com/item/1005005941908229.html) screen with a 128x64 pixel resolution, which operates on 3V and 5V. It uses an I2C communication interface, and the screen controller is SSD1315. The source code is also compatible with older versions, such as SSD1306 and SSD1309.
+## Description
 
-![](/assets/src/ssd1306/protoboard.jpeg)
+Write text to a 128 × 64 monochrome I2C OLED. The tested 0.96-inch module uses an SSD1315 controller.
 
-The connection between the microcontroller and the OLED screen is very simple due to the I2C interface. Keep in mind that the CH552 microcontroller does not have dedicated I2C registers and emulates it, so you can make the connection to any available pin.
+## Schematic
 
-![](/assets/src/ssd1306/schematic.png)
+![OLED circuit](/assets/src/ssd1306/schematic.png)
 
-The schematic diagram shown above is a simple representation intended to show the connection between the OLED screen and the MCU. The circuit necessary for the MCU to function is intentionally omitted.
+![OLED breadboard](/assets/src/ssd1306/protoboard.jpeg)
 
-A technique called `screen_buffer` is used to draw on the screen. If our screen is 128x64 pixels, defining the `screen_buffer` variable will occupy 128x64 = 8192 bytes. Unfortunately, the CH552 has only 256 bytes of RAM, so we cannot use this technique.
+## Features
+
+- Software I2C through the shared driver.
+- Text output without a full-screen buffer.
+- Driver intended for SSD1306, SSD1309, and SSD1315 modules.
+
+## Additional information
+
+The schematic shows the OLED connection; add the [minimum MCU circuit](/README.md#minimum-circuit). Check your module's supply voltage before connecting it.
+
+A full 128 × 64 monochrome buffer needs 1024 bytes, which uses all of the CH552's XRAM. This driver writes directly to the display instead.

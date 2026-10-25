@@ -1,23 +1,25 @@
 # Blink
 
-This is a simple blink example (turning on and off with an intermediate pause), also known as a flip-flop, which uses the P3.0 port to send a voltage of 5V and 0V.
+## Description
 
-![](/assets/src/blink/schematic.png)
+Turn an LED on and off on P3.0.
 
-In the source code, we show two ways to achieve the same result:
+## Schematic
 
-## Option 1
+![Blink circuit](/assets/src/blink/schematic.png)
+
+## Features
+
+- One LED output.
+- Uses a blocking delay between changes.
+
+## Additional information
+
+The loop toggles the LED:
 
 ```c
-delay(1000);
-LED = 0;
-delay(1000);
-LED = 1;
+LED = !LED;
+delay_ms(1000);
 ```
 
-## Option 2
-
-```c
-delay(1000);
-LED =! LED;
-```
+You can also set `LED` to `0` and `1` with a delay between each change.

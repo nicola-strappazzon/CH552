@@ -1,93 +1,79 @@
-# Microcontroller CH552G by a hobbyist
+# CH552G examples
 
-This is a fascinating, enhanced, and well-equipped 8-bit microcontroller, available at an incredibly low cost (around $1), designed and manufactured in China by [Jiangsu Heng Qin Ltd. (WCH)](http://www.wch-ic.com). For now, we will focus on the [CH552G](https://www.wch-ic.com/products/CH552.html), which is based on the E8051 architecture. One of the most appealing features of this MCU is its USB port and a 24MHz internal oscillator, among other functionalities. Programming it requires a strong foundation in [MCS-51/80C51](https://en.wikipedia.org/wiki/MCS-51). The manufacturer provides a [package with a wide variety of source codes](https://www.wch.cn/downloads/CH552EVT_ZIP.html). There are different package options and versions of the MCU, such as the CH551, CH552, CH554, and CH559. The USB port, with its multiple functions, allows for easy program uploads, posing no risk as it is a native feature. In my personal opinion, this microcontroller is ideal for hobbyists working on simple projects or for those with a curious mindset.
+C examples, hardware designs, and notes for the WCH CH552G, an 8-bit microcontroller based on the 8051 architecture. It has native USB and a built-in bootloader, so firmware can be uploaded without a separate programmer.
 
-A major difference of this microcontroller compared to other microcontrollers is that it does not require an additional device for programming; the USB port is sufficient. I believe that using a push button to access the bootloader for programming adds an extra level of security.
-
-You can purchase the MCUs from the official store on [AliExpress](https://wchofficialstore.es.aliexpress.com/store/1100367542) or at [LCSC](https://www.lcsc.com).
+See the [datasheet](/doc/datasheets/CH552.pdf) and [WCH examples](https://www.wch.cn/downloads/CH552EVT_ZIP.html).
 
 <p align="center">
 	<img src="/assets/system_block_diagram.png">
 </p>
 
-For example, an MCU from the AT89LP51 family offers fewer features and costs three times more compared to the CH55X family. Of course, the support community for Microchip is much larger and more established compared to WCH’s, which is just starting to grow. However, the key is having good official documentation and a solid architecture. With patience and perseverance, great things can be achieved.
-
 ## Specifications
 
-Here are the most relevant specifications of the MCU. For more details, refer to the [official documentation](https://www.wch-ic.com/products/CH552.html).
-
-- Operates between: 5V and 3.3V.
-- Includes this memories types: 16KB Code Flash, 1KB XRAM, 256B iRAM, and 128B DataFlash.
-- Supports this communication protocols: USB 2.0, UART, SPI, and ISP.
-- Other features: 3 timers, 2 PWM, 4 ADC, and more.
-- Equipped with a Bootloader.
-- Includes a 24MHz internal clock.
-- Comes with a unique numeric identifier.
-- Available packages: TSSOP-20, SOP-16, MSOP-10.
+- 3.3 V or 5 V operation.
+- 16 KB code flash, 1 KB XRAM, 256 bytes internal RAM, and 128 bytes data flash.
+- USB, UART, and SPI.
+- Three timers, two PWM channels, and four ADC inputs.
+- Built-in bootloader and 24 MHz internal oscillator.
+- Factory chip identifier.
 
 <p align="center">
 	<img src="/assets/pinout2.png">
 </p>
 
-The pinout we are showing is basic, just to give you an idea. There are more functionalities available on the ports. Please refer to the [datasheet](/doc/datasheets/CH552.pdf) for more detailed information.
+See the datasheet for all pin functions and package options. Check the clock timing for applications that need accurate delays.
 
-> [!IMPORTANT]
-> 1. The internal 24MHz clock is not precise but in the most cases is good, you can adjust it by software using a logic analyze, otherwise you will have to use an external one.
-> 2. The Code Flash (ROM) uses an iFlash™ process and is rated by the datasheet for **about 200 reprogramming cycles** at 5V — much less than typical flash MCUs. The 128-byte **Data Flash** is a separate region rated for **about 10,000 erase/program cycles**, with balanced wear recommended.
+Code flash is rated for about 200 programming cycles at 5 V. Data flash is rated for about 10,000 erase/write cycles; spread writes across it to reduce wear.
 
-## Minimum Schematic
+## Minimum circuit
 
-Use the following components to build the minimum circuit:
+- One CH552G.
+- Two 100 nF capacitors.
+- Two 10 kΩ resistors.
+- Two 1 kΩ resistors.
+- Two buttons: boot and reset.
 
-- One CH552G microcontroller.
-- Two 100nF capacitors.
-- Two 10K resistors.
-- Two 1K resistors.
-- Two push buttons: one for boot and one for reset.
+![Minimum circuit](/assets/minimal_schematic.jpg)
 
-![](/assets/minimal_schematic.jpg)
+![Breadboard circuit](/assets/minimal_protoboard.jpg)
 
-On the breadboard, it should look like this:
+## Examples
 
-![](/assets/minimal_protoboard.jpg)
-
-## Source Code
-
-This repository contains a collection of example source codes written in C to get started. All the listed examples have been thoroughly tested to ensure they function correctly.
-
-- [adc](/src/adc) Captures voltage variations through an input port.
-- [blink](/src/blink) Uses an output port to turn an LED on and off.
-- [bootloader](/src/bootloader) Forces the MCU to enter bootloader mode by default.
-- [button & led rgb](/src/button_led_rgb) Interacts with a button and an RGB LED to change its color.
-- [button](/src/button) Uses one input port for a button and another output port for the LED.
-- [cdc](/src/cdc) Sends and receives messages via the UART protocol.
-- [data flash](/src/data_flash) Saves the last state in persistent memory.
-- [DHT11](/src/dht11) Read DHT11 sensor and print to OLED module.
-- [fade](/src/fade) Uses PWM to fade a LED on and off.
-- [oled module](/src/ssd1306) Simple usage of an OLED module with I2C.
-- [pwm](/src/pwm) Hardware PWM fade on P3.0 using the PWM1 peripheral.
-- [unique id](/src/unique_id) Reads the chip unique serial, print it over USB-CDC.
-- [USB/cdc tx](/src/usb/cdc/tx) Sends messages via the USB-CDC.
-- [USB/cdc rx](/src/usb/cdc/rx) Echoes back bytes received over USB-CDC.
-- [watchdog](/src/watchdog) Demonstrates hardware watchdog recovery from a simulated hang.
+- [ADC](/src/adc): read a potentiometer and send values over UART.
+- [Blink](/src/blink): blink an LED.
+- [Bootloader](/src/bootloader): enter the bootloader at startup.
+- [Button](/src/button): control an LED with a button.
+- [Button and RGB LED](/src/button_led_rgb): change color with a button.
+- [UART](/src/cdc): send and receive text through a CH340 adapter.
+- [Data flash](/src/data_flash): save the last LED color.
+- [DHT11](/src/dht11): show temperature and humidity on an OLED.
+- [DHT20](/src/dht20): wiring notes; sensor code is not implemented yet.
+- [DS1307](/src/ds1307): show the date and time on an OLED.
+- [Fade](/src/fade): fade an LED with software PWM.
+- [Hardware PWM](/src/pwm): fade an LED with PWM1.
+- [SSD1306](/src/ssd1306): write text to an I2C OLED.
+- [Unique ID](/src/unique_id): send chip configuration bytes over USB CDC.
+- [USB CDC TX](/src/usb/cdc/tx): send text over USB.
+- [USB CDC RX](/src/usb/cdc/rx): echo bytes received over USB.
+- [Watchdog](/src/watchdog): reset after a simulated hang.
 
 ## Documentation
 
-This is basic documentation to help you compile and upload firmware to the MCU, including the datasheet, relevant links, and much more.
+- [SDCC](/doc/sdcc.md): install the compiler and build examples.
+- [Bootloader](/doc/bootloader.md): enter upload mode.
+- [Flash](/doc/flash.md): upload firmware with wchisp.
+- [Hardware](/hdw): KiCad designs.
+- [Links](/doc/links.md): related resources.
 
-- [SDCC (Small Devices C Compiler)](/doc/sdcc.md) Explains how to install and use the compiler.
-- [Bootloader](/doc/flash.md) The MCU has a bootloader, and you need to know how to enter it to upload the firmware.
-- [Datasheet](/doc/datasheets/CH552.pdf) Technical documentation from the manufacturer.
+## Related projects
 
-## Related Projects
+- [CH334 - USB 2.0 hub](https://github.com/nicola-strappazzon/CH334)
+- [CH340 - USB to serial](https://github.com/nicola-strappazzon/CH340)
+- [CH9141 - Bluetooth serial](https://github.com/nicola-strappazzon/CH9141)
 
-- [CH334 - HUB USB 2.0](https://github.com/nicola-strappazzon/CH334)
-- [CH340 - USB 2.0 to Serial](https://github.com/nicola-strappazzon/CH340)
-- [CH9141 - Bluetooth Serial Transparent](https://github.com/nicola-strappazzon/CH9141)
-
-## Third-Party Projects
+## Third-party projects
 
 - [Adafruit CH552 QT Py](https://learn.adafruit.com/adafruit-ch552-qt-py/overview)
-- [English Docs for CH559 Microcontroller](https://kprasadvnsi.github.io/CH559_Doc_English)
-- [Small Devices Arduino for ch55x devices](https://github.com/DeqingSun/ch55xduino)
-- [Arduino Board Package to Debug Uno/ATmega328P with CH552 debugger in Arduino IDE 2.0.0](https://github.com/DeqingSun/unoDebugTestPackage)
+- [CH559 documentation in English](https://kprasadvnsi.github.io/CH559_Doc_English)
+- [ch55xduino](https://github.com/DeqingSun/ch55xduino)
+- [CH552 debugger for Arduino Uno](https://github.com/DeqingSun/unoDebugTestPackage)

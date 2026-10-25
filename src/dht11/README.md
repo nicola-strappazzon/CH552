@@ -1,19 +1,25 @@
-# DHT11 - Temperature and humidity sensor
+# DHT11 temperature and humidity sensor
 
-[Datasheet](/doc/datasheets/DHT11.pdf)
+## Description
 
-This sensor operates between 3.3V and 5.5V, uses a proprietary "single wire" communication protocol, and its accuracy is around +/- 5 % for humidity and +/- 2C for temperature.
+Read a DHT11 sensor and show temperature and humidity on an OLED.
 
-![](/assets/src/dht11/protoboard.jpeg)
+## Schematic
 
-The connection between the sensor and the MCU is very simple — you can pick any available pin; here we use P3.2:
+![DHT11 circuit](/assets/src/dht11/schematic.png)
 
-![](/assets/src/dht11/schematic.png)
+![DHT11 breadboard](/assets/src/dht11/protoboard.jpeg)
 
-## Single wire protocol
+## Features
 
-The DHT11 uses a single wire for communication, starting with a start signal from the microcontroller: the pin is pulled low for at least 18 ms and then released (high). The sensor replies with an 80 µs low pulse followed by an 80 µs high pulse to indicate it is ready. After that, the DHT11 sends 40 bits of data (5 bytes): the first two bytes are the integer and decimal parts of the humidity, the next two are the integer and decimal parts of the temperature, and the last byte is a checksum to validate the data.
+- Sensor data pin on P3.2.
+- Single-wire protocol with a 40-bit response.
+- Checks the response checksum.
 
-![](/assets/doc/pulseview/dht11_02.png)
+## Additional information
 
-**NOTE:** For communication with the sensor to work, the clock must be properly configured. Make sure to validate it with an oscilloscope or a [logic analyzer](/doc/logic_analyze.md).
+The MCU starts a reading with a low pulse of at least 18 ms. The sensor replies with low and high pulses of about 80 µs each, then sends humidity, temperature, and checksum bytes.
+
+![DHT11 signal capture](/assets/doc/pulseview/dht11_02.png)
+
+Check the clock and delays with a [logic analyzer](/doc/logic_analyze.md). See the [datasheet](/doc/datasheets/DHT11.pdf) for voltage and accuracy limits.

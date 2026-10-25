@@ -1,65 +1,29 @@
-# Flash
+# Flash firmware
 
+The examples use [wchisp](https://github.com/ch32-rs/wchisp). Binaries are included in `tools/macos` and `tools/linux`. The Makefiles use the macOS binary by default.
 
-https://github.com/ch32-rs/wchisp
-
-
-https://www.wch-ic.com/downloads/WCHISPTool_CMD_ZIP.html
-
-
-Para instalar la herramienta `chflasher` siga las siguientes instrucciones:
+Enter [bootloader mode](bootloader.md), then run from an example directory:
 
 ```bash
-git submodule update --init
-brew install libusb-compat
-python3 -m pip install --user pyusb pyserial
+make flash
 ```
 
-En Linux debera otorgar permisos especiales:
-
-```
-/etc/udev/rules.d/99-ch55x.rules
-SUBSYSTEM=="usb", ATTR{idVendor}=="4348", ATTR{idProduct}=="55e0", MODE="666"
-sudo service udev restart
-```
-
-Una ves sincronizado el submodulo de git podra acceder al directorio y ejecutar el script de python:
+On Linux, from the repository root:
 
 ```bash
-cd tools/chflasher/
+make -C src/blink flash WCHISP="$PWD/tools/linux/wchisp flash"
 ```
 
-Para borrar la memoria del MCU ejecute el siguiente comando:
+If Linux denies USB access, add this rule to `/etc/udev/rules.d/99-ch55x.rules`:
+
+```udev
+SUBSYSTEM=="usb", ATTR{idVendor}=="4348", ATTR{idProduct}=="55e0", MODE="0666"
+```
+
+Reload the rules and reconnect the device:
 
 ```bash
-./chflasher.py -e
+sudo udevadm control --reload-rules
 ```
 
-Obtendra la siguiente salida:
-
-```
-Found CH552
-Flash size: 16 blocks, 16384 bytes.
-Reserved for application: 14 blocks, 14336 bytes.
-Bootloader version: 2.50
-Flash Erased
-```
-
-Para subir el firmware al MCU ejecute el siguiente comando:
-
-```bash
-./chflasher.py -w -f ../../src/fade/fade.bin
-```
-
-Obtendra la siguiente salida:
-
-```
-Found CH552
-Flash size: 16 blocks, 16384 bytes.
-Reserved for application: 14 blocks, 14336 bytes.
-Bootloader version: 2.50
-Flash Erased
-Filesize: 305 bytes
-[====================] 100% Writing success
-[====================] 100% Verify success
-```
+WCH also provides a [command-line ISP tool](https://www.wch-ic.com/downloads/WCHISPTool_CMD_ZIP.html).

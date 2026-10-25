@@ -1,23 +1,17 @@
-# Logic analyze
+# Logic analyzer
 
-El dispositivo que vamos a configurar en Windows 11 es [nanoDLA](https://github.com/wuxx/nanoDLA), para otros sistemas operativos como MAC OS y Linux no hace falta. Una vez que este operativo, podra usar el software [Pulseview](pulseview.md) para capturar y explorar.
+These notes cover the [nanoDLA](https://github.com/wuxx/nanoDLA) on Windows 11. This driver setup is not needed on macOS or Linux. Use [PulseView](pulseview.md) to capture signals.
 
-Al conectar el dispositivo en Windows 11 podemos verificar si lo reconoce haciendo uso del `Device Manager`, cómo se puede observar en `Other devices`, esta identificado cómo `fx2lafw`.
+Connect the analyzer and open Device Manager. It may appear as `fx2lafw` under `Other devices`.
 
-![](/assets/doc/logic_analyze/windows01.png)
+![Device Manager before driver installation](/assets/doc/logic_analyze/windows01.png)
 
-Al no estar reconocido, deberá instalar el controlador mediante la herramienta `zadig`. Escriba la siguiente línea en el PowerShell:
+Open Zadig, select the analyzer, and install the driver:
 
-```powershell
-winget install 
-```
+![Select the device in Zadig](/assets/doc/logic_analyze/windows02.png)
 
-Al iniciar `zadig`, detectará el dispositivo nuevo y podrá instalar el controlador:
+![Driver selection](/assets/doc/logic_analyze/windows03.png)
 
-![](/assets/doc/logic_analyze/windows02.png)
+![Driver installation](/assets/doc/logic_analyze/windows04.png)
 
-![](/assets/doc/logic_analyze/windows03.png)
-
-![](/assets/doc/logic_analyze/windows04.png)
-
-Una vez instalado el controlador, no se requiere reiniciar, y podra observar en el `Device Manager` que aparece en un nuevo sitio `Universal Serial Bus devices`.
+No restart is needed. The analyzer should now appear under `Universal Serial Bus devices` in Device Manager.

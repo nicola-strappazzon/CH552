@@ -1,7 +1,18 @@
 # Button
 
-This is a simple example of how to read a button, switch, or pushbutton.
+## Description
 
-![](/assets/src/button/schematic.png)
+Read a button and use its state to control an LED.
 
-The circuit is based on the configuration of the button with a pull-down resistor.
+## Schematic
+
+![Button circuit](/assets/src/button/schematic.png)
+
+## Features
+
+- Button input on P3.2.
+- LED output on P3.0.
+
+## Additional information
+
+The schematic uses a pull-down resistor for the button.

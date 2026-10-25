@@ -1,37 +1,34 @@
-# Circuito interno del CH55x
+# Inside the CH55x
 
-En un hilo de un [foro chino](https://bbs.eeworld.com.cn/thread-1137120-1-1.html) me consegui esta información y he usado el google translate:
+Die photos and notes from a [Chinese forum thread](https://bbs.eeworld.com.cn/thread-1137120-1-1.html), translated with Google Translate. The chip comparisons below are based on that post.
 
+![CH552 die](/assets/doc/inside/ch552_01.png)
+![CH552 die detail](/assets/doc/inside/ch552_02.png)
 
-![](/assets/doc/inside/ch552_01.png)
-![](/assets/doc/inside/ch552_02.png)
+The CH551 and CH552 appear to share a die, about 1.8 × 1.5 mm. Some features may be disabled on the CH551.
 
-CH551 y CH552 tienen el mismo troquel. Las dimensiones son aproximadamente 1,8 x 1,5 mm. Es posible que algunas funciones estén deshabilitadas solo en el CH551.
+A memory area is visible at the bottom right and a logic area at the top left. The other areas are not identified.
 
-En la esquina inferior derecha del molde hay un recuerdo. En la parte superior izquierda se puede ver claramente un área lógica. Las áreas restantes no se pueden reasignar.
+![CH552 markings](/assets/doc/inside/ch552_03.png)
 
-![](/assets/doc/inside/ch552_03.png)
+Only the company name is clearly visible on the die.
 
-No hay ningún nombre en el molde que no sea el nombre de la empresa.
+![CH554 die](/assets/doc/inside/ch554_01.png)
 
-![](/assets/doc/inside/ch554_01.png)
+The CH554 is similar to the CH552 and adds USB host support.
 
-CH554 es similar a CH552 pero proporciona funcionalidad de host USB adicional
+![CH554 die detail](/assets/doc/inside/ch554_02.png)
 
-![](/assets/doc/inside/ch554_02.png)
+The CH554 also appears to share the CH551/CH552 die. The original post suggests that USB host hardware may be present but disabled in the smaller models; this is not confirmed.
 
-CH554 utiliza el mismo molde que CH551 y CH552. Esto significa que la funcionalidad de host USB probablemente estará disponible en todas las variantes y estará deshabilitada solo en los modelos más pequeños.
+![CH559 die](/assets/doc/inside/ch559_01.png)
 
-![](/assets/doc/inside/ch559_01.png)
+The CH559 is a larger member of the family. The post lists a maximum clock of 56 MHz, 65 KB flash, 6 KB RAM, and support for two USB devices.
 
-El CH559 es el modelo más grande de la serie CH55x con el núcleo del CH551.
+![CH559 die detail](/assets/doc/inside/ch559_02.png)
 
-La hoja de datos proporciona un reloj máximo del sistema de 56MHz. La memoria disponible es Flash-ROM de 65 kB y RAM de 6 kB. El CH559 puede incluso gestionar dos dispositivos USB.
+Its die is larger and differs from the CH551, CH552, and CH554 design.
 
-![](/assets/doc/inside/ch559_02.png)
+![CH559 markings](/assets/doc/inside/ch559_03.png)
 
-Los CH551, CH552 y CH554 se basan en el mismo diseño, mientras que el CH559 utiliza un troquel más grande y completamente diferente.
-
-![](/assets/doc/inside/ch559_03.png)
-
-Es posible que haya una cadena encima del nombre de la empresa, pero no se puede analizar.
+There may be text above the company name, but it is not readable.

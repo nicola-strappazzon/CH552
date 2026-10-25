@@ -1,7 +1,19 @@
-# Button & LED RGB
+# Button and RGB LED
 
-This is a program that allows interaction with a button and an RGB LED, changing its color each time the button is pressed. For example, when the MCU is powered on, the LED is off. If the button is pressed for the first time, it turns red; on the second press, it turns green; on the third press, it turns blue; and on the fourth press, the cycle ends by turning off the LED, allowing the process to start over.
+## Description
 
-![](/assets/src/button_led_rgb/schematic.png)
+Press the button to cycle through red, green, blue, and off.
 
-The schematic diagram shown above is a simple representation meant to show the connection of a button and an RGB LED to the MCU. The circuit necessary for the MCU to function is intentionally omitted.
+## Schematic
+
+![Button and RGB LED circuit](/assets/src/button_led_rgb/schematic.png)
+
+## Features
+
+- Button on P3.2.
+- Red on P3.4, green on P3.3, and blue on P1.1.
+- Button debounce delay.
+
+## Additional information
+
+The schematic shows the button and LED connections. Add the [minimum MCU circuit](/README.md#minimum-circuit).

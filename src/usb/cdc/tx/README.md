@@ -1,7 +1,23 @@
-# Communication Device Class (CDC/TX)
+# USB CDC transmit
 
-This is an example of the most simplified source code to send text using the native USB port registers of the MCU.
+## Description
 
-![](/assets/src/usb/cdc/tx/CoolTerm.png)
+Send a counter and greeting through the native USB serial port.
 
-To better understand how the USB protocol works, refer to the following documentation: [USB in a NutShell](https://www.beyondlogic.org/usbnutshell/usb1.shtml).
+## Schematic
+
+No example schematic is included. See the [minimum circuit](/README.md#minimum-circuit).
+
+## Features
+
+- USB CDC virtual serial port.
+- Repeated text output.
+- No USB-to-UART adapter needed.
+
+## Additional information
+
+Open the serial port in a terminal after flashing. The firmware ignores the selected baud rate.
+
+![CoolTerm output](/assets/src/usb/cdc/tx/CoolTerm.png)
+
+See [USB in a NutShell](https://www.beyondlogic.org/usbnutshell/usb1.shtml) for an introduction to USB.
