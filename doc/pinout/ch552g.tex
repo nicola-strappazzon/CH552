@@ -1,0 +1,94 @@
+\documentclass[margin=5mm]{standalone}
+\usepackage[T1]{fontenc}
+\usepackage{tikz}
+\usepackage{sourcecodepro}
+\usetikzlibrary{positioning,calc}
+\renewcommand{\familydefault}{\ttdefault}
+
+% Group registry: one definition supplies both the rendering colour and legend.
+\newcommand{\PinGroup}[3]{%
+  \definecolor{pin-#1}{RGB}{#2}%
+  \expandafter\def\csname group-label-#1\endcsname{#3}}
+\input{groups.tex}
+\definecolor{ink}{RGB}{38,50,56}
+\definecolor{muted}{RGB}{100,116,128}
+\definecolor{chipfill}{RGB}{247,249,251}
+
+% Rendering stays independent of the physical pin and peripheral data.
+\newcommand{\Function}[5]{%
+  \ifnum\Side=0
+    \node[badge,fill=pin-#1!25,draw=pin-#1!80!ink,
+          anchor=east,left=1.2mm of \Previous] (function-\PinNumber-\arabic{functionindex})
+          {\if\relax\detokenize{#2}\relax\else #2\,\fi#3#4%
+           \if\relax\detokenize{#5}\relax\else\;{\tiny[#5]}\fi};%
+  \else
+    \node[badge,fill=pin-#1!25,draw=pin-#1!80!ink,
+          anchor=west,right=1.2mm of \Previous] (function-\PinNumber-\arabic{functionindex})
+          {\if\relax\detokenize{#2}\relax\else #2\,\fi#3#4%
+           \if\relax\detokenize{#5}\relax\else\;{\tiny[#5]}\fi};%
+  \fi
+  \edef\Previous{function-\PinNumber-\arabic{functionindex}}%
+  \stepcounter{functionindex}}
+\newcounter{functionindex}
+
+\newcommand{\Pin}[4]{%
+  \def\PinNumber{#1}%
+  \ifnum#1<9
+    \def\Side{0}\pgfmathsetmacro{\PinY}{8-#1}%
+    \path[draw=ink,fill=pin-#3] (-0.4,\PinY-0.25) rectangle (0,\PinY+0.25);
+    \node[font=\scriptsize,text=muted] at (0.3,\PinY) {#1};
+    \node[pinname,fill=pin-#3!20,anchor=east] (pin-#1) at (-0.58,\PinY) {#2};%
+  \else
+    \def\Side{1}\pgfmathsetmacro{\PinY}{#1-9}%
+    \path[draw=ink,fill=pin-#3] (2.6,\PinY-0.25) rectangle (3,\PinY+0.25);
+    \node[font=\scriptsize,text=muted] at (2.3,\PinY) {#1};
+    \node[pinname,fill=pin-#3!20,anchor=west] (pin-#1) at (3.18,\PinY) {#2};%
+  \fi
+  \edef\Previous{pin-#1}\setcounter{functionindex}{0}%
+  #4}
+
+\begin{document}
+\begin{tikzpicture}[
+  x=1cm,y=0.8cm,text=ink,
+  pinname/.style={draw=ink!65,line width=0.4pt,rounded corners=1pt,
+    minimum width=11mm,minimum height=5.5mm,font=\small\bfseries},
+  badge/.style={line width=0.35pt,rounded corners=1pt,inner xsep=3pt,
+    inner ysep=3pt,minimum height=5.5mm,font=\scriptsize}]
+\pagecolor{white}
+\path[fill=chipfill,draw=ink,line width=0.8pt,rounded corners=2pt]
+  (0,-0.7) rectangle (2.6,7.7);
+% Pin 1 marker and package notch.
+\fill[ink] (0.3,7.45) circle (0.055);
+\draw[ink,line width=0.8pt] (0.95,7.7) arc[start angle=180,end angle=360,x radius=0.35,y radius=0.35];
+\node[rotate=90,font=\Large\bfseries,text=ink!75] at (1.3,3.5) {CH552G};
+\input{pins.tex}
+
+% Use the actual badge extents to centre the heading and legend.
+\coordinate (bottomleft) at (current bounding box.south west);
+\coordinate (bottomright) at (current bounding box.south east);
+\coordinate (heading) at ($(current bounding box.north west)!0.5!(current bounding box.north east)$);
+\node[anchor=south,font=\Large\bfseries] at ($(heading)+(0,0.65)$) {CH552G / PINOUT};
+\node[anchor=south,font=\small,text=muted] at ($(heading)+(0,0.12)$)
+  {16-pin SOP \quad | \quad top view};
+
+\newlength{\DiagramWidth}
+\path let \p1=(bottomleft),\p2=(bottomright) in
+  \pgfextra{\global\DiagramWidth=\dimexpr\x2-\x1\relax};
+\coordinate (legendstart) at ($(bottomleft)+(0,-0.7)$);
+\foreach \key [count=\i from 0] in {power,ground,analog,digital,uart,spi,usb,touch,control,timer}{%
+  \pgfmathtruncatemacro{\col}{mod(\i,5)}%
+  \pgfmathtruncatemacro{\row}{int(\i/5)}%
+  \pgfmathsetmacro{\fraction}{\col/5}%
+  \coordinate (legendcol) at ($(bottomleft)!\fraction!(bottomright)$);
+  \node[badge,anchor=north west,fill=pin-\key!25,draw=pin-\key!80!ink]
+    at ($(legendcol)+(0,-0.7-\row*0.85)$) {\csname group-label-\key\endcsname};}
+\node[anchor=north west,align=left,font=\scriptsize,text=muted,text width=\DiagramWidth]
+  at ($(legendstart)+(0,-1.8)$) {%
+  D / A = default / alternate mapping in PIN\_FUNC. Alternate labels replace the datasheet's underscore suffix.\\[2pt]
+  Pxn names support GPIO; USB data pins require USB\_IO\_EN = 0 for GPIO. Shared labels are selectable functions.\\[2pt]
+  T2 CLK = T2 counter input / clock output; T2 EX = T2EX reload/capture input; SCS = SPI slave-select input.\\[2pt]
+  USB D+/D- also carry ISP bootloader traffic. P3.6/P3.7 use V33 levels; V33 is not a general 5 V supply pin.\\[2pt]
+  SOP-16 does not expose P1.0, P1.2, P1.3 or P3.5: no external crystal pins or T1 input; T2 CLK/CAP1 needs route A.\\[2pt]
+  No hardware I2C peripheral. Source: WCH CH552 datasheet V1G, sections 3, 4 and 10.4.};
+\end{tikzpicture}
+\end{document}

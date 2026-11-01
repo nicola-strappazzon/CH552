@@ -1,0 +1,65 @@
+% CH552G, SOP-16, top view. WCH CH552 datasheet V1G, sections 3, 4, 10.4.
+% \Pin{physical number}{name}{base group}{functions}
+% \Function{group}{peripheral instance}{signal}{channel}{route}
+% D/A = default/alternate mapping in PIN_FUNC; empty = fixed pin function.
+% The datasheet's underscore suffix means alternate mapping, not active-low.
+% All Pxn names support GPIO; shared functions require peripheral configuration.
+
+\Pin{1}{P3.2}{analog}{%
+  \Function{analog}{ADC}{AIN}{3}{}
+  \Function{uart}{UART1}{TXD}{}{A}
+  \Function{control}{}{INT}{0}{}
+  \Function{usb}{USB-C}{VBUS}{1}{}}
+\Pin{2}{P1.4}{analog}{%
+  \Function{analog}{ADC}{AIN}{1}{}
+  \Function{spi}{SPI0}{SCS}{}{}
+  \Function{timer}{T2}{CLK}{}{A}
+  \Function{timer}{T2}{CAP}{1}{A}
+  \Function{touch}{TKEY}{TIN}{2}{}
+  \Function{usb}{USB-C}{UCC}{1}{}}
+\Pin{3}{P1.5}{analog}{%
+  \Function{analog}{ADC}{AIN}{2}{}
+  \Function{spi}{SPI0}{MOSI}{}{}
+  \Function{timer}{}{PWM}{1}{D}
+  \Function{touch}{TKEY}{TIN}{3}{}
+  \Function{usb}{USB-C}{UCC}{2}{}}
+\Pin{4}{P1.6}{digital}{%
+  \Function{spi}{SPI0}{MISO}{}{}
+  \Function{uart}{UART1}{RXD}{}{D}
+  \Function{touch}{TKEY}{TIN}{4}{}}
+\Pin{5}{P1.7}{digital}{%
+  \Function{spi}{SPI0}{SCK}{}{}
+  \Function{uart}{UART1}{TXD}{}{D}
+  \Function{touch}{TKEY}{TIN}{5}{}}
+\Pin{6}{RST}{control}{%
+  \Function{control}{}{RESET}{}{}
+  \Function{timer}{T2}{EX}{}{A}
+  \Function{timer}{T2}{CAP}{2}{A}}
+\Pin{7}{P3.1}{digital}{%
+  \Function{uart}{UART0}{TXD}{}{D}
+  \Function{timer}{}{PWM}{2}{A}}
+\Pin{8}{P3.0}{digital}{%
+  \Function{uart}{UART0}{RXD}{}{D}
+  \Function{timer}{}{PWM}{1}{A}}
+\Pin{9}{P1.1}{analog}{%
+  \Function{analog}{ADC}{AIN}{0}{}
+  \Function{timer}{T2}{EX}{}{D}
+  \Function{timer}{T2}{CAP}{2}{D}
+  \Function{touch}{TKEY}{TIN}{1}{}
+  \Function{usb}{USB-C}{VBUS}{2}{}}
+\Pin{10}{P3.3}{digital}{%
+  \Function{control}{}{INT}{1}{}}
+\Pin{11}{P3.4}{digital}{%
+  \Function{timer}{}{PWM}{2}{D}
+  \Function{uart}{UART1}{RXD}{}{A}
+  \Function{timer}{T0}{IN}{}{}}
+\Pin{12}{P3.6}{usb}{%
+  \Function{usb}{USB}{D+ (UDP)}{}{}}
+\Pin{13}{P3.7}{usb}{%
+  \Function{usb}{USB}{D- (UDM)}{}{}}
+\Pin{14}{GND}{ground}{%
+  \Function{ground}{}{VSS}{}{}}
+\Pin{15}{VCC}{power}{%
+  \Function{power}{}{VDD}{}{}}
+\Pin{16}{V33}{power}{%
+  \Function{power}{USB}{3.3V}{}{}}

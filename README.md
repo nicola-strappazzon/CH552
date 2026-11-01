@@ -18,10 +18,10 @@ See the [datasheet](/doc/datasheets/CH552.pdf) and [WCH examples](https://www.wc
 - Factory chip identifier.
 
 <p align="center">
-	<img src="/assets/pinout2.png">
+	<img src="/assets/pinout2.png" alt="CH552G SOP-16 pinout with colour-coded peripheral functions">
 </p>
 
-See the datasheet for all pin functions and package options. Check the clock timing for applications that need accurate delays.
+The pinout groups functions by colour and marks default and alternate pin mappings. See the [LaTeX sources and build instructions](/doc/pinout) to edit or regenerate it. See the datasheet for all pin functions and package options. Check the clock timing for applications that need accurate delays.
 
 Code flash is rated for about 200 programming cycles at 5 V. Data flash is rated for about 10,000 erase/write cycles; spread writes across it to reduce wear.
 
@@ -59,6 +59,7 @@ Code flash is rated for about 200 programming cycles at 5 V. Data flash is rated
 
 ## Documentation
 
+- [Pinout](/doc/pinout): LaTeX sources, peripheral groups, pin mappings, and diagram build instructions.
 - [SDCC](/doc/sdcc.md): install the compiler and build examples.
 - [Bootloader](/doc/bootloader.md): enter upload mode.
 - [Flash](/doc/flash.md): upload firmware with wchisp.
